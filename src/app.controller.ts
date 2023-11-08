@@ -9,9 +9,9 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-import { UserService } from './user.service';
-import { PostService } from './post.service';
-import { User as UserModel, Post as PostModel } from '@prisma/client';
+// import { UserService } from './user.service';
+// import { PostService } from './post.service';
+// import { User as UserModel, Post as PostModel } from '@prisma/client';
 import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';

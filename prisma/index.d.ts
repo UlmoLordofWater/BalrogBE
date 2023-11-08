@@ -222,8 +222,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.4.2
-   * Query Engine version: ac9d7041ed77bcc8a8dbd2ab6616b39013829574
+   * Prisma Client JS version: 5.5.2
+   * Query Engine version: aebc046ce8b88ebbcb45efe31cbe7d06fd6abc0a
    */
   export type PrismaVersion = {
     client: string
@@ -1196,7 +1196,7 @@ export namespace Prisma {
   type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
 
   type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<UserFindManyArgs, 'select' | 'include'> & {
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: UserCountAggregateInputType | true
     }
 
@@ -2172,7 +2172,7 @@ export namespace Prisma {
   type PostGetPayload<S extends boolean | null | undefined | PostDefaultArgs> = $Result.GetResult<Prisma.$PostPayload, S>
 
   type PostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<PostFindManyArgs, 'select' | 'include'> & {
+    Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' > & {
       select?: PostCountAggregateInputType | true
     }
 
