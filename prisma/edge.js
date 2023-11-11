@@ -127,7 +127,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "F:\\Builds\\BalrogBE\\prisma",
+      "value": "C:\\Users\\wesle\\Desktop\\Builds\\BalrogBE\\prisma",
       "fromEnvVar": null
     },
     "config": {
