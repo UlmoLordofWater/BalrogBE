@@ -12,7 +12,7 @@ import { UsersModule } from './users/users.module';
       expandVariables: true,
     }),
     AuthModule,
-    UsersModule
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

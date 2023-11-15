@@ -9,9 +9,9 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-// import { UserService } from './user.service';
+import { UsersService } from './users/users.service';
 // import { PostService } from './post.service';
-// import { User as UserModel, Post as PostModel } from '@prisma/client';
+// import { User as UserModel } from '@prisma/client/';
 import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
@@ -21,7 +21,7 @@ import { get } from 'http';
 @Controller()
 export class AppController {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private userService: UsersService){}
 
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
@@ -34,6 +34,13 @@ export class AppController {
   getProfile(@Request() req) {
     return req.user;
   }
+
+  // @Post('register')
+  // async signupUser(
+  //   @Body() userData: {email: string, password: string},
+  // ): Promise<UserModel> {
+  //   return this.userService.registerUser(userData);
+  // }
 
   // constructor(
   //   private readonly userService: UserService,
@@ -82,13 +89,6 @@ export class AppController {
   //       connect: { email: authorEmail },
   //     },
   //   });
-  // }
-
-  // @Post('user')
-  // async signupUser(
-  //   @Body() userData: { name?: string; email: string },
-  // ): Promise<UserModel> {
-  //   return this.userService.createUser(userData);
   // }
 
   // @Put('publish/:id')
