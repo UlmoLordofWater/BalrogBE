@@ -1,27 +1,35 @@
 import { Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
+import { User } from 'prisma';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
-    constructor(
-        private usersService: UsersService, 
-        private jwtService: JwtService
-        ){}
+  constructor(
+    private usersService: UsersService,
+    private jwtService: JwtService,
+  ) {}
 
-    async validateUser(email: string, pass: string): Promise<any>{
-        const user = await this.usersService.findOne(email);
-        if(user && user.password === pass){
-            const { password, ...result} = user;
-            return result;
-        }
-        return null;
+  //this validate user is not the jwt way but it is a way
+  async validateUser(
+    email: string,
+    pass: string,
+  ): Promise<Omit<User, 'passwordHash'>> {
+    const user = await this.usersService.findOne(email);
+    if (user && user.passwordHash === bcrypt.hash(pass, 10)) {
+      //jake we hash incoming password and check them
+      const { passwordHash, ...result } = user;
+      return result;
+      // return {...user};
     }
+    return null;
+  }
 
-    async login(user: any){
-        const payload = { email: user.email, sub: user.userId };
-        return{
-            access_token: this.jwtService.sign(payload),
-        };
-    }
+  async login(user: any) {
+    const payload = { email: user.email, sub: user.userId };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
+  }
 }

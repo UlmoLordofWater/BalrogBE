@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output          = "../prisma"
+  output   = "../prisma"
 }
 
 datasource db {
@@ -12,15 +12,15 @@ datasource db {
 }
 
 model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  name  String?
+  id           Int     @id @default(autoincrement())
+  email        String  @unique
+  name         String?
   passwordHash String
-  posts Post[]
+  posts        Post[]
 }
 
 model Post {
-  id        Int      @default(autoincrement()) @id
+  id        Int      @id @default(autoincrement())
   title     String
   content   String?
   published Boolean? @default(false)
