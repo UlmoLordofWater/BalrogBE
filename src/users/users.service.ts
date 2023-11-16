@@ -14,10 +14,11 @@ export class UsersService {
   constructor(private prisma: PrismaService) {}
 
   async registerUser(email: string, password: string): Promise<User> {
+    const costFactor = 10;
     return this.prisma.user.create({
       data: {
         email,        
-        passwordHash: bcrypt.hash( password,10),
+        passwordHash: await bcrypt.hash(password, costFactor),
       },
     }).catch(e=>{
       throw new HttpException('jake says '+e, HttpStatus.I_AM_A_TEAPOT);

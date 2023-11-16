@@ -22,14 +22,14 @@ import { User } from 'prisma';
 export class AppController {
 
   constructor(
-    // private authService: AuthService, 
+    private authService: AuthService, 
     private userService: UsersService, 
     ){}
 
   // @UseGuards(LocalAuthGuard)
   @Post('auth/login')
-  async login(@Request() req) { //use dto
-    // return this.authService.login(req.user);
+  async login(@Body() loginDto: LoginDto) { //use dto
+    return this.authService.login(loginDto.email);
   }
 
   // @UseGuards(JwtAuthGuard)
