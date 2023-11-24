@@ -17,16 +17,17 @@ export class AuthService {
     pass: string,
   ): Promise<Omit<User, 'passwordHash'>> {
     const user = await this.usersService.findOne(email);
-    if (user && user.passwordHash === bcrypt.hash(pass, 10)) {
+    let costFactor = 10;
+    if (user && user.passwordHash === bcrypt.hash(pass, costFactor)) {
       //jake we hash incoming password and check them
       const { passwordHash, ...result } = user;
-      return result;
-      // return {...user};
+      // return user;
+      return {...user};
     }
     return null;
   }
 
-  async login(user: any) {
+  async login(user: any): Promise<{ access_token: string}> {
     const payload = { email: user.email, sub: user.userId };
     return {
       access_token: this.jwtService.sign(payload),
