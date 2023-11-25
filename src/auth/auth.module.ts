@@ -5,14 +5,14 @@ import { JwtStrategy } from './jwt.strategy';
 import { UsersModule } from '../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constants';
 
 @Module({
   imports: [
     UsersModule,
-    PassportModule.register({defaultStrategy:'jwt'}),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secret: jwtConstants.secret,
+      //  process.env?.JWT_SECRETE != null ? process.env?.JWT_SECRETE : 'some default secrete'
+      secret: process.env?.JWT_SECRETE ?? 'some default secrete',
       signOptions: { expiresIn: '60s' },
     }),
   ],

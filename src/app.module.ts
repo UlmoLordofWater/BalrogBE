@@ -8,7 +8,7 @@ import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
+    ConfigModule.forRoot({ //this module will add the .env to process which is a global object
       isGlobal: true,
       expandVariables: true,
     }),
