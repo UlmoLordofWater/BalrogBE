@@ -23,9 +23,7 @@ export class AuthService {
     if (isMatch === true) {
       //jake we hash incoming password and check them
       const { passwordHash, ...userWithOutHash } = user;
-      // return user;
       return userWithOutHash;
-      // return {...user};
     } else {
       console.info('user was not found in the database');
       return null;
@@ -36,7 +34,6 @@ export class AuthService {
   async signUserJwt(
     user: Omit<User, 'passwordHash'>,
   ): Promise<Toke> {
-    // const payload = { email: user.email, sub: user.id };
     console.log('token:', this.jwtService.sign(user));
     return {
       access_token: this.jwtService.sign(user),
