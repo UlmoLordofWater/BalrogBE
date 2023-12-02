@@ -30,7 +30,7 @@ export class AppController {
     private userService: UsersService,
   ) {}
 
-  // @UseGuards(LocalAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Post('auth/login')
   @ApiResponse({
     description: "This Is what the server will respond with if the login is valid",
@@ -46,7 +46,7 @@ export class AppController {
         ...userFromDb,
         ...(await this.authService.signUserJwt(userFromDb)),
       };
-    } else {
+    } else {  
       throw new HttpException('you are forbidden', HttpStatus.FORBIDDEN);
     }
   }

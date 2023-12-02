@@ -16,12 +16,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.6.0
- * Query Engine version: e95e739751f42d8ca026f6b910f5a2dc5adeaeee
+ * Prisma Client JS version: 5.5.2
+ * Query Engine version: aebc046ce8b88ebbcb45efe31cbe7d06fd6abc0a
  */
 Prisma.prismaVersion = {
-  client: "5.6.0",
-  engine: "e95e739751f42d8ca026f6b910f5a2dc5adeaeee"
+  client: "5.5.2",
+  engine: "aebc046ce8b88ebbcb45efe31cbe7d06fd6abc0a"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -122,6 +122,15 @@ exports.Prisma.PostScalarFieldEnum = {
   authorId: 'authorId'
 };
 
+exports.Prisma.TodoScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  complete: 'complete',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  authorId: 'authorId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -135,7 +144,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Post: 'Post'
+  Post: 'Post',
+  Todo: 'Todo'
 };
 
 /**
