@@ -4396,7 +4396,7 @@ export namespace Prisma {
 
   export type TodoCreateInput = {
     title: string
-    complete: boolean
+    complete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     author?: UserCreateNestedOneWithoutTodoInput
@@ -4405,7 +4405,7 @@ export namespace Prisma {
   export type TodoUncheckedCreateInput = {
     id?: number
     title: string
-    complete: boolean
+    complete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     authorId?: number | null
@@ -4431,7 +4431,7 @@ export namespace Prisma {
   export type TodoCreateManyInput = {
     id?: number
     title: string
-    complete: boolean
+    complete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     authorId?: number | null
@@ -5116,7 +5116,7 @@ export namespace Prisma {
 
   export type TodoCreateWithoutAuthorInput = {
     title: string
-    complete: boolean
+    complete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5124,7 +5124,7 @@ export namespace Prisma {
   export type TodoUncheckedCreateWithoutAuthorInput = {
     id?: number
     title: string
-    complete: boolean
+    complete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5296,7 +5296,7 @@ export namespace Prisma {
   export type TodoCreateManyAuthorInput = {
     id?: number
     title: string
-    complete: boolean
+    complete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
