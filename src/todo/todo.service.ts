@@ -21,7 +21,7 @@ export class TodoService {
   }
 
   findAll() {
-    return `This action returns all todo`;
+    return this.prisma.todo.findMany({})
   }
 
   findOne(id: number) {
